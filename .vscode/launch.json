@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/AdventureLog-API/bin/Debug/net8.0/AdventureLog-API.dll",
+            "program": "${workspaceFolder}/bin/Debug/net8.0/AdventureLog-API.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
