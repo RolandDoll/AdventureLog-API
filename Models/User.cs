@@ -1,6 +1,8 @@
-namespace AdventureLog_API;
+using Microsoft.EntityFrameworkCore;
 
-public class WeatherForecast
+namespace AdventureLog_API.Models;
+
+public class User
 {
     public DateOnly Date { get; set; }
 

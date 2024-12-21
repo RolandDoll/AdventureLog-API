@@ -23,3 +23,11 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+/** TODOs:
+- gitignore
+- Service
+- Repository
+- ApplicationContext
+- ApplicationConfig
+*/
