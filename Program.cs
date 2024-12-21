@@ -1,4 +1,8 @@
+using System.Data.Common;
+using AdventureLog_API.Database;
 using AdventureLog_API.Models;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +18,13 @@ var configManager = builder.Configuration;
 var config = new ApplicationConfig();
 configManager.Bind("Application", config);
 builder.Services.AddSingleton<ApplicationConfig>(provider => config);
+// builder.Services.AddScoped<ApplicationContext>();
+
+builder.Services.AddScoped<DbConnection>(_ => new NpgsqlConnection(
+    config.ConnectionString
+));
+
+builder.Services.AddDbContext<ApplicationContext>();
 
 var app = builder.Build();
 
