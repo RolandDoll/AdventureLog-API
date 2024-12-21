@@ -4,19 +4,27 @@ using Microsoft.AspNetCore.Mvc;
 namespace AdventureLog_API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+[Route("sample")]
+public class SampleController : ControllerBase
 {
-    private readonly ILogger<WeatherForecastController> _logger;
+    private readonly ApplicationConfig _config;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public SampleController(ApplicationConfig config)
     {
-        _logger = logger;
+        _config = config;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet("test")]
     public async Task<User> Get()
     {
-        return new User();
+        var test = new User()
+        {
+            Id = Guid.NewGuid(),
+            Username = "radoll",
+            Password = _config.ConnectionString,
+            DisplayName = "Roland Doll"
+        };
+
+        return test;
     }
 }
