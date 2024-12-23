@@ -8,7 +8,6 @@ namespace AdventureLog_API.Controllers;
 [Route("sample")]
 public class SampleController : ControllerBase
 {
-    private readonly ApplicationConfig _config;
     private readonly IUserService _userService;
 
     public SampleController(IUserService userService)
