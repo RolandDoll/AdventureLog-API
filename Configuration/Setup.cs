@@ -22,7 +22,7 @@ public static class Setup
         var config = new ApplicationConfig();
         configManager.Bind("Application", config);
         builder.Services.AddSingleton(provider => config);
-
+        
         builder.Services.AddScoped<DbConnection>(_ => new NpgsqlConnection(
             config.ConnectionString
         ));

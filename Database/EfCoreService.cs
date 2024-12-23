@@ -1,7 +1,4 @@
-using AdventureLog_API.Database;
 using AdventureLog_API.Models;
-using Microsoft.EntityFrameworkCore;
-
 
 namespace AdventureLog_API.Database;
 

@@ -1,6 +1,5 @@
 using AdventureLog_API.Configuration;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -25,8 +24,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-/**
-    TODO:
-    - PR Template
-*/
