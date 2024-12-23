@@ -1,4 +1,5 @@
 using AdventureLog_API.Models;
+using AdventureLog_API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdventureLog_API.Controllers;
@@ -8,22 +9,17 @@ namespace AdventureLog_API.Controllers;
 public class SampleController : ControllerBase
 {
     private readonly ApplicationConfig _config;
+    private readonly IUserService _userService;
 
-    public SampleController(ApplicationConfig config)
+    public SampleController(IUserService userService)
     {
-        _config = config;
+        _userService = userService;
     }
 
     [HttpGet("test")]
     public async Task<User> Get()
     {
-        var test = new User()
-        {
-            Id = Guid.NewGuid(),
-            Username = "radoll",
-            Password = _config.ConnectionString,
-            DisplayName = "Roland Doll"
-        };
+        var test = await _userService.GetSampleUserAsync();
 
         return test;
     }

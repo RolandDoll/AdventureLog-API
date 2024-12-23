@@ -1,6 +1,8 @@
 using System.Data.Common;
 using AdventureLog_API.Database;
 using AdventureLog_API.Models;
+using AdventureLog_API.Repositories;
+using AdventureLog_API.Services;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
@@ -25,6 +27,9 @@ builder.Services.AddScoped<DbConnection>(_ => new NpgsqlConnection(
 ));
 
 builder.Services.AddDbContext<ApplicationContext>();
+builder.Services.AddScoped(typeof(IEfCoreService), typeof(EfCoreService));
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
