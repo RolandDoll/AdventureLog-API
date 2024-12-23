@@ -5,7 +5,7 @@ namespace AdventureLog_API.Services;
 
 public interface IUserService
 {
-    Task<User> GetSampleUserAsync();
+    Task<User> GetSampleUserAsync(Guid userId);
 }
 
 public class UserService : IUserService
@@ -17,9 +17,9 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public async Task<User> GetSampleUserAsync()
+    public async Task<User> GetSampleUserAsync(Guid userId)
     {
-        var user = await _userRepository.GetSampleUserAsync();
+        var user = await _userRepository.GetSampleUserAsync(userId);
 
         return user;
     }

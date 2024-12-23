@@ -15,10 +15,10 @@ public class SampleController : ControllerBase
         _userService = userService;
     }
 
-    [HttpGet("test")]
-    public async Task<User> Get()
+    [HttpGet("{userId}")]
+    public async Task<User> Get(Guid userId)
     {
-        var test = await _userService.GetSampleUserAsync();
+        var test = await _userService.GetSampleUserAsync(userId);
 
         return test;
     }

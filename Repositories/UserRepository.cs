@@ -5,7 +5,7 @@ namespace AdventureLog_API.Repositories;
 
 public interface IUserRepository
 {
-    Task<User> GetSampleUserAsync();
+    Task<User> GetSampleUserAsync(Guid userId);
 }
 
 public class UserRepository : IUserRepository
@@ -17,10 +17,10 @@ public class UserRepository : IUserRepository
         _efCoreService = efCoreService;
     }
 
-    public async Task<User> GetSampleUserAsync()
+    public async Task<User> GetSampleUserAsync(Guid userId)
     {
         var user = await _efCoreService.FetchAsync<User, Guid>(
-            Guid.Parse("84f82624-94a7-43d6-86d5-9b98e8fee1ac")
+            userId
         );
 
         return user;
